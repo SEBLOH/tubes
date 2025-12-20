@@ -68,7 +68,7 @@
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto text-center">
                 <li class="nav-item">
-                    <a class="nav-link text-primary fw-bold <?= ($currentPage == 'index.php') ? 'border-bottom border-primary border-2' : '' ?>" href="index.php">
+                    <a class="nav-link text-primary fw-bold <?= ($currentPage == 'index.php') ? 'border-bottom border-primary border-2' : '' ?>" href="index.html">
                         Home
                     </a>
                 </li>
