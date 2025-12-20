@@ -1,9 +1,13 @@
+<?php
+$pageTitle = "Pokedex Guide - Pokemon World";
+// API Source: https://pokeapi.co/api/v2/
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex Guide - Pokemon World</title>
+    <title><?php echo $pageTitle; ?></title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,23 +23,18 @@
             background-color: #fdfdfd;
         }
         .navbar { background-color: var(--pk-yellow); }
-        
         .guide-header {
             background: linear-gradient(135deg, var(--pk-blue) 0%, var(--pk-dark-blue) 100%);
             padding: 60px 0;
             color: white;
             text-align: center;
         }
-
-        .type-table img { width: 30px; margin-right: 10px; }
-        
         .fact-card {
             background: white;
             border-left: 5px solid var(--pk-yellow);
             transition: transform 0.3s ease;
         }
         .fact-card:hover { transform: scale(1.02); }
-
         footer { background: var(--pk-dark-blue); color: white; padding: 20px 0; }
     </style>
 </head>
@@ -43,17 +42,17 @@
 
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm">
         <div class="container">
-        <a class="navbar-brand fw-extrabold text-primary" href="index.html">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Logo" height="30" class="me-2">
-        </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand fw-extrabold text-primary" href="index.html">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Logo" height="30" class="me-2">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto text-center">
-                    <li class="nav-item"><a class="nav-link fw-bold text-primary " href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold text-primary " href="collection.html">Collection</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold text-primary border-bottom border-primary border-2" href="pokedex.html">Pokedex Guide</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-primary" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-primary" href="collection.php">Collection</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-primary border-bottom border-primary border-2" href="pokedex.php">Pokedex Guide</a></li>
                 </ul>
             </div>
         </div>
@@ -75,7 +74,7 @@
                     <p class="text-muted small mb-4">Gunakan panduan ini untuk mengetahui tipe mana yang memberikan damage lebih besar (2x) atau lebih kecil (0.5x).</p>
                     
                     <div class="table-responsive">
-                        <table class="table table-hover align-middle type-table">
+                        <table class="table table-hover align-middle">
                             <thead class="table-light">
                                 <tr>
                                     <th>Tipe</th>
@@ -135,7 +134,7 @@
 
     <footer class="text-center mt-5">
         <div class="container">
-            <p class="mb-0 small">© 2025 Pokemon World — Powered by PokeAPI</p>
+            <p class="mb-0 small">© <?php echo date("Y"); ?> Pokemon World — Powered by PokeAPI</p>
         </div>
     </footer>
 
@@ -144,19 +143,16 @@
             const content = document.getElementById('pokemon-fact-content');
             content.innerHTML = '<div class="spinner-border text-primary" role="status"></div>';
             
-            // Random ID 1 - 151 (Gen 1)
             const randomId = Math.floor(Math.random() * 151) + 1;
             
             try {
-                // Fetch species data for flavor text (lore)
+                // Endpoint PokeAPI v2
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${randomId}/`);
                 const data = await response.json();
                 
-                // Fetch basic data for the image
                 const pokeResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}/`);
                 const pokeData = await pokeResponse.json();
                 
-                // Find English flavor text
                 const loreEntry = data.flavor_text_entries.find(entry => entry.language.name === 'en');
                 const cleanLore = loreEntry ? loreEntry.flavor_text.replace(/[\f\n\r]/g, ' ') : "No data available.";
 
@@ -170,10 +166,8 @@
             }
         }
 
-        // Run on load
         document.addEventListener('DOMContentLoaded', fetchRandomLore);
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
