@@ -3,12 +3,12 @@ use PHPUnit\Framework\TestCase;
 
 class FileTypeTest extends TestCase
 {
-
     private $projectFiles = [
         'index.html',
-        'pokedex.html',
-        'collection.html',
+        'pokedex.php',  
+        'collection.php',
     ];
+
     // 1
     public function test_files_exist()
     {
@@ -17,26 +17,23 @@ class FileTypeTest extends TestCase
         }
     }
 
-    //2
-    public function test_html_files_contain_html_tags()
+    // 2
+    public function test_html_structure_exists()
     {
         foreach ($this->projectFiles as $file) {
-            if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
-                $content = file_get_contents($file);
-
-                $this->assertMatchesRegularExpression(
-                    '/(html|head|body|div|p|span|i|section)/',
-                    $content,
-                    "File $file bukan HTML yang valid!"
-                );
-            }
+            $content = file_get_contents($file);
+            $this->assertMatchesRegularExpression(
+                '/(html|head|body|div|p|span|i|section)/',
+                $content,
+                "File $file tidak mengandung struktur HTML yang valid!"
+            );
         }
     }
 
-    //3
+    // 3
     public function test_api_integration_script_exists()
     {
-        $filesToCheck = ['pokedex.html', 'collection.html'];
+        $filesToCheck = ['pokedex.php', 'collection.php'];
         foreach ($filesToCheck as $file) {
             $content = file_get_contents($file);
             $this->assertStringContainsString(
@@ -47,15 +44,15 @@ class FileTypeTest extends TestCase
         }
     }
 
-    //4
+    // 4
     public function test_navbar_links_are_correct()
     {
         $content = file_get_contents('index.html');
-        $this->assertStringContainsString('href="collection.html"', $content, "Link Collection di Navbar index.html salah!");
-        $this->assertStringContainsString('href="pokedex.html"', $content, "Link Pokedex Guide di Navbar index.html salah!");
+        $this->assertStringContainsString('href="collection.php"', $content, "Link Collection di Navbar index.html belum diupdate ke .php!");
+        $this->assertStringContainsString('href="pokedex.php"', $content, "Link Pokedex Guide di Navbar index.html belum diupdate ke .php!");
     }
 
-    //5
+    // 5
     public function test_page_titles_are_present()
     {
         foreach ($this->projectFiles as $file) {
