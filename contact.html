@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pokemon World - Hubungi Kami</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pk-yellow: #ffcb05;
+            --pk-blue: #2a75bb;
+            --pk-dark-blue: #3c5aa6;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-contact {
+            background: linear-gradient(135deg, var(--pk-blue) 0%, var(--pk-dark-blue) 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            border: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            background: var(--pk-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--pk-blue);
+            box-shadow: 0 0 0 0.25rem rgba(42, 117, 187, 0.25);
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: var(--pk-dark-blue);
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .back-home {
+            text-decoration: none;
+            color: var(--pk-blue);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-home:hover {
+            color: var(--pk-dark-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-extrabold text-primary" href="index.html">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" 
+                     alt="Logo Pokemon" height="30" class="me-2">
+            </a>    
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-primary fw-bold" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary fw-bold" href="collection.php">Collection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary fw-bold" href="pokedex.php">Pokedex Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white px-4 ms-lg-3 rounded-pill" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-contact">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-3">Hubungi Kami</h1>
+                    <p class="lead mb-4">
+                        Ada pertanyaan tentang dunia Pokemon? Ingin berkolaborasi atau sekadar menyapa? 
+                        Tim Pokemon World siap membantu Anda!
+                    </p>
+                    <a href="index.html" class="back-home">
+                        ← Kembali ke Home
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center mt-4 mt-lg-0">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" 
+                         alt="Pikachu" 
+                         class="img-fluid"
+                         style="max-height: 250px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Information -->
+                <div class="col-lg-5">
+                    <div class="contact-card bg-white p-4 p-md-5 h-100">
+                        <h3 class="fw-bold text-primary mb-4">Informasi Kontak</h3>
+                        
+                        <div class="mb-5">
+                            <div class="icon-circle">
+                                📍
+                            </div>
+                            <h5 class="fw-bold mb-2">Lokasi</h5>
+                            <p class="text-muted mb-1">Pokemon World Headquarters</p>
+                            <p class="text-muted">Pallet Town, Kanto Region</p>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="icon-circle">
+                                ✉️
+                            </div>
+                            <h5 class="fw-bold mb-2">Email</h5>
+                            <p class="text-muted mb-1">info@pokemonworld.com</p>
+                            <p class="text-muted">support@pokemonworld.com</p>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="icon-circle">
+                                📞
+                            </div>
+                            <h5 class="fw-bold mb-2">Telepon</h5>
+                            <p class="text-muted mb-1">+62 812 3456 7890</p>
+                            <p class="text-muted">+62 813 9876 5432 (WhatsApp)</p>
+                        </div>
+
+                        <div>
+                            <h5 class="fw-bold mb-3">Ikuti Petualangan Kami</h5>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="social-btn bg-primary text-white">
+                                    f
+                                </a>
+                                <a href="#" class="social-btn bg-info text-white">
+                                    Ig
+                                </a>
+                                <a href="#" class="social-btn bg-dark text-white">
+                                    X
+                                </a>
+                                <a href="#" class="social-btn bg-danger text-white">
+                                    Yt
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <div class="contact-card bg-white p-4 p-md-5 h-100">
+                        <h3 class="fw-bold text-primary mb-4">Kirim Pesan</h3>
+                        <p class="text-muted mb-4">
+                            Isi form di bawah ini dan kami akan menghubungi Anda dalam 24 jam.
+                        </p>
+
+                        <form id="contactForm">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Nama Lengkap *</label>
+                                    <input type="text" class="form-control" placeholder="Contoh: Ash Ketchum" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Email *</label>
+                                    <input type="email" class="form-control" placeholder="ash@pallet.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Subjek *</label>
+                                    <select class="form-select" required>
+                                        <option value="" selected disabled>Pilih kategori pesan</option>
+                                        <option value="bug">Laporan Bug/Error</option>
+                                        <option value="collab">Penawaran Kerja Sama</option>
+                                        <option value="question">Pertanyaan Seputar Pokemon</option>
+                                        <option value="suggestion">Saran Pengembangan</option>
+                                        <option value="other">Lainnya</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Pesan *</label>
+                                    <textarea class="form-control" rows="5" 
+                                              placeholder="Tuliskan pesan lengkap Anda di sini..." 
+                                              required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label text-muted" for="newsletter">
+                                            Saya ingin menerima update tentang Pokemon World
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill py-3 fw-bold">
+                                        Kirim Pesan Sekarang
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="contact-card bg-white p-4 p-md-5">
+                        <h3 class="fw-bold text-primary mb-4">Kantor Kami</h3>
+                        <div class="map-container">
+                            <div style="width: 100%; height: 300px; background: #e9ecef; display: flex; align-items: center; justify-content: center;">
+                                <div class="text-center">
+                                    <div class="mb-3">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" 
+                                             alt="Pokeball" 
+                                             style="width: 60px; opacity: 0.7;">
+                                    </div>
+                                    <h5 class="text-primary">Pokemon World HQ</h5>
+                                    <p class="text-muted">Pallet Town, Kanto Region</p>
+                                    <small class="text-muted">*Peta lokasi akan ditampilkan di sini</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h3 class="fw-bold text-primary">Pertanyaan yang Sering Diajukan</h3>
+                <p class="text-muted">Temukan jawaban cepat untuk pertanyaan umum</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                        <h5 class="fw-bold text-primary">Apakah ini website resmi Pokemon?</h5>
+                        <p class="text-muted mb-0">
+                            Tidak, ini adalah fan-made website untuk edukasi dan hiburan. Data diambil dari PokeAPI.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                        <h5 class="fw-bold text-primary">Berapa lama waktu respon?</h5>
+                        <p class="text-muted mb-0">
+                            Kami biasanya merespon dalam 24 jam kerja. Untuk urgensi tinggi, gunakan nomor telepon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" 
+                         alt="Logo Pokemon" 
+                         height="30" 
+                         class="mb-2">
+                    <p class="mb-0 small opacity-75">© 2025 Pokemon World — Fan-made Website</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small opacity-75 mb-0">
+                        Data provided by PokeAPI.<br>
+                        Not affiliated with Nintendo or The Pokemon Company.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const inputs = this.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('is-invalid');
+                } else {
+                    input.classList.remove('is-invalid');
+                }
+            });
+            
+            if (isValid) {
+                // Show success message
+                alert('Terima kasih! Pesan Anda telah berhasil dikirim. Kami akan menghubungi Anda segera.');
+                this.reset();
+            } else {
+                alert('Harap lengkapi semua field yang wajib diisi.');
+            }
+        });
+        
+        // Real-time validation
+        document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.classList.add('is-invalid');
+                } else {
+                    this.classList.remove('is-invalid');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
