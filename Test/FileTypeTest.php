@@ -7,6 +7,7 @@ class FileTypeTest extends TestCase
         'index.html',
         'pokedex.php',  
         'collection.php',
+        'contact.html'
     ];
 
     // 1
