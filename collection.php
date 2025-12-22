@@ -82,11 +82,15 @@
                         Pokedex Guide
                     </a>
                 </li>
+                    <li class="nav-item">
+                    <a class="nav-link btn btn-primary text-white px-4 ms-lg-3 rounded-pill <?= ($currentPage == 'contact.html') ? 'border-bottom border-primary border-2' : '' ?>" href="contact.html">
+                        Contact
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
-
 <header class="header-bg">
     <div class="text-center">
         <h1 class="fw-bold">Pokedex Collection</h1>
